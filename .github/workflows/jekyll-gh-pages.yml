@@ -1,11 +1,14 @@
 # Sample workflow for building and deploying a Jekyll site to GitHub Pages
-name: Deploy Jekyll with GitHub Pages dependencies preinstalled
+name: Angular CI
 
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["develop"]
-
+    branches: ["develop", "QA", "main", "release/*"]
+  # Runs on pull requests
+  pull_request:
+    branches: ["develop", "QA", "main", "release/*"]
+   
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -21,30 +24,24 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Build job
-  build:
+  test:
+    name: Test on node
     runs-on: self-hosted
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
-        with:
-          source: ./
-          destination: ./_site
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+    strategy:
+      matrix:
+        node_version: ['8', '10', '12']
+        os: [ubuntu-latest, windows-latest, macOS-latest]
 
-  # Deployment job
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: self-hosted
-    needs: build
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node_version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node_version }}
+
+    - name: npm install, build and test
+      run: |
+        npm install
+        npm run build --if-present
+        npm test
+      
