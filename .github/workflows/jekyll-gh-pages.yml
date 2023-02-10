@@ -44,7 +44,13 @@ jobs:
         npm run deploy
     - name: Deploy
       run: |
-        git status
-        ls -la
+        git checkout gh-pages
+        rm -rf !(dist)
+        mv dist/ ./
+        rm -rf dist
+        git add .
+        git pull origin gh-pages
+        git commit -m
+        git push origin gh-pages
         
       
