@@ -64,4 +64,4 @@ jobs:
         git commit -m "deploy"
         git push
       env:
-        GITHUB_TOKEN: ${{ secrets.TKN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
