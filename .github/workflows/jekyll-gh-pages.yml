@@ -44,8 +44,7 @@ jobs:
         npm run deploy
     - name: Deploy
       run: |
-        git config --global user.email "agexandro@gmail.com"
-        git config --global user.name "Night-human"
+        curl -u USERNAME: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 https://api.github.com/Night-human
         shopt -s extglob
         git stash
         ls -la
@@ -58,5 +57,4 @@ jobs:
         git pull origin gh-pages
         git commit -m "deploy"
         git push origin gh-pages
-        
-      
+        unset GLOBIGNORE
