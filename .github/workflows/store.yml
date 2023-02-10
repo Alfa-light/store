@@ -40,26 +40,14 @@ jobs:
 
     - name: Build
       run: |
-        npm install
-        npm run build
+      #  npm install
+      #  npm run build
     - name: GitHub Script
       uses: actions/github-script@v6.4.0
       with:
         # The script to run
         script:
-          shopt -s extglob
-          git stash
-          ls -la
-          git checkout gh-pages
-          git pull origin gh-pages
-          rm -rf !(dist)
-          shopt -u extglob
-          mv dist/store/* ./
-          rm -rf dist
-          ls -la
-          git add .
-          git commit -m "deploy"
-          git push
+          shopt -s extglob && git status
         # The GitHub token used to create an authenticated client
         github-token: ${{ secrets.GITHUB_TOKEN }}
         # Whether to tell the GitHub client to log details of its requests
