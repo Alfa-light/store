@@ -57,6 +57,7 @@ jobs:
         rm -rf dist
         ls -la
         git add .
+        git pull
         git commit -m "deploy"
         git push
       env:
