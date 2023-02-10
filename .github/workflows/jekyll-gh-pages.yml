@@ -44,7 +44,7 @@ jobs:
         npm run deploy
     - name: Deploy
       run: |
-        curl -u USERNAME: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 https://api.github.com/Night-human
+        curl -u USERNAME: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 https://api.github.com/user
         shopt -s extglob
         git stash
         ls -la
