@@ -54,6 +54,5 @@ jobs:
         rm -rf dist
         ls -la
         git add .
-        git pull origin gh-pages
         git commit -m "deploy"
-        git push origin gh-pages
+        git push
