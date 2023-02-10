@@ -38,8 +38,14 @@ jobs:
       with:
         node-version: ${{ matrix.node_version }}
 
-    - name: npm install, build and deploy
+    - name: Build
       run: |
         npm install
         npm run deploy
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@release/v3
+      with:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      BRANCH: gh-pages
+      FOLDER: dist/store
       
