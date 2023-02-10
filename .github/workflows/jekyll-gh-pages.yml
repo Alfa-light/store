@@ -57,4 +57,3 @@ jobs:
         git pull origin gh-pages
         git commit -m "deploy"
         git push origin gh-pages
-        unset GLOBIGNORE
