@@ -44,11 +44,13 @@ jobs:
         npm run deploy
     - name: Deploy
       run: |
-        git stash package-lock.json
+        git stash
+        ls -la
         git checkout gh-pages
         rm -rf !(dist)
         mv dist/ ./
         rm -rf dist
+        ls -la
         git add .
         git pull origin gh-pages
         git commit -m
