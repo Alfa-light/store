@@ -54,7 +54,7 @@ jobs:
         ls -la
         git add .
         git pull origin gh-pages
-        git commit -m
+        git commit -m "deploy"
         git push origin gh-pages
         
       
