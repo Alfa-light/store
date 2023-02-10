@@ -41,18 +41,7 @@ jobs:
     - name: Build
       run: |
         npm install
-        npm run deploy
     - name: Deploy
       run: |
-        curl -u USERNAME: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 https://api.github.com/user
-        shopt -s extglob
-        git stash
-        ls -la
-        git checkout gh-pages
-        rm -rf !(dist)
-        mv dist/store/* ./
-        rm -rf dist
-        ls -la
-        git add .
-        git commit -m "deploy"
-        git push
+        npm run deploy
+        
