@@ -52,12 +52,12 @@ jobs:
         git stash
         ls -la
         git checkout gh-pages
+        git pull origin gh-pages
         rm -rf !(dist)
         mv dist/store/* ./
         rm -rf dist
         ls -la
         git add .
-        git pull
         git commit -m "deploy"
         git push
       env:
