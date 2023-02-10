@@ -49,7 +49,7 @@ jobs:
         ls -la
         git checkout gh-pages
         rm -rf !(dist)
-        mv dist/* ./
+        mv dist/store/* ./
         rm -rf dist
         ls -la
         git add .
