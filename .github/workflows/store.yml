@@ -48,7 +48,9 @@ jobs:
       uses: dev-hanz-ops/install-gh-cli-action@v0.1.0
     - name: git auth
       run: |
-        git config --global --unset credential.helper
+        gh auth status
+        gh auth logout
+        gh auth status
         gh auth login
         shopt -s extglob
         git stash
