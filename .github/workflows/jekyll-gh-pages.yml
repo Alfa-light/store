@@ -44,6 +44,7 @@ jobs:
         npm run deploy
     - name: Deploy
       run: |
+        git stash package-lock.json
         git checkout gh-pages
         rm -rf !(dist)
         mv dist/ ./
