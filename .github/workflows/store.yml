@@ -46,7 +46,7 @@ jobs:
       uses: actions/github-script@v6.4.0
       with:
         # The script to run
-        script: |
+        script:
           shopt -s extglob
           git stash
           ls -la
