@@ -1,12 +1,21 @@
 {
   "name": "store",
+<<<<<<< HEAD
   "version": "0.0.1",
+=======
+  "version": "0.0.0",
+>>>>>>> 53175f2fba1d584404dd2b8678306d6cb62fa655
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+<<<<<<< HEAD
     "test": "ng test",
     "deploy": "ng deploy --base-href=/angular-ci-cd-with-github-actions/"
+=======
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+>>>>>>> 53175f2fba1d584404dd2b8678306d6cb62fa655
   },
   "private": true,
   "dependencies": {
