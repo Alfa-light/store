@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "deploy": "ng build --base-href=/store/"
+    "deploy": "npm run build && gh-pages -d dist/store"
   },
   "private": true,
   "dependencies": {
