@@ -48,6 +48,7 @@ jobs:
       uses: dev-hanz-ops/install-gh-cli-action@v0.1.0
     - name: git auth
       run: |
+        export GITHUB_TOKEN=
         gh auth login
         shopt -s extglob
         git stash
