@@ -44,6 +44,8 @@ jobs:
         npm run deploy
     - name: Deploy
       run: |
+        git config --global user.email "agexandro@gmail.com"
+        git config --global user.name "Night-human"
         shopt -s extglob
         git stash
         ls -la
