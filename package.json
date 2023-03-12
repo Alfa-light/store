@@ -5,8 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
-    "deploy": "npm run build && gh-pages -d dist/store"
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {
